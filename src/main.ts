@@ -61,11 +61,12 @@ async function run(): Promise<void> {
 
     // make binary executable
     fs.chmodSync(ninjaFilepath, '755')
+    core.info(`Successfully installed ninja-${ninjaVersion} at ${ninjaDest}`)
 
     // add to path
     core.addPath(ninjaDest)
 
-    console.log(`Successfully added ninja-${ninjaVersion} to PATH`)
+    core.info(`Successfully added ninja-${ninjaVersion} to PATH`)
   } catch (error) {
     core.setFailed(error.message)
   }
